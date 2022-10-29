@@ -1,0 +1,34 @@
+name: Test Project
+
+on: push
+
+jobs:
+ test:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Get code 
+      uses: actions/checkout@v3
+    - name: install nodejs
+      uses: actions/setup-node@v3
+      with:
+       node-version: 16
+    - name: install dependecies
+      run: npm install
+    - name: test
+      run: npm run test    
+ deploy:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Get code 
+      uses: actions/checkout@v3
+    - name: install nodejs
+      uses: actions/setup-node@v3
+      with:
+       node-version: 16
+    - name: install dependecies
+      run: npm install
+    - name: build
+      run: npm run build
+    - name: deployment
+      run: echo "Deployment...."      
+ 
